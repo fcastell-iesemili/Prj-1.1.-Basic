@@ -27,40 +27,40 @@
           <p class="camp">
 						<i class="far fa-address-card"></i>
             <label>DNI:</label>
-            <input type="text" name="dni" value="" maxlength="10" required="required" title="DNI obligatori"/>
+            <input type="text" name="dni" value="" maxlength="10" required="required" title="DNI obligatori" id="dni"/>
           </p>
           <p class="camp">
 						<i class="far fa-user"></i>
             <label>Nom:</label>
-            <input type="text" name="name" value="" maxlength="20" required="required"/>
+            <input type="text" name="name" value="" maxlength="20" required="required" id="name"/>
           </p>
           <p class="camp">
 						<i class="far fa-user"></i>
             <label>Llinatges:</label>
-            <input type="text" name="surname" value="" maxlength="30" required="required"/>
+            <input type="text" name="surname" value="" maxlength="30" required="required" id="surname"/>
           </p>
           <p class="camp">
 						<i class="fas fa-calendar-week"></i>
             <label>Data naixement:</label>
             <!--<input type="text" name="date" value=""  max="1989-12-31"/>-->
-            <input type="text" name="date" value="" required="required" />
+            <input type="text" name="date" value="" required="required" id="date"/>
           </p>
           <p class="camp" style="clear:left;">
 						<i class="fas fa-phone-square"></i>
             <label>Telèfon:</label>
             <!--<input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"/>-->
-            <input type="text" name="phone" value="" required="required"/>
+            <input type="text" name="phone" value="" required="required" id="phone"/>
           </p>
           <p class="camp">
 						<i class="fas fa-at"></i>
             <label>Email:</label>
             <!--<input type="email" name="email" value=""/>-->
-            <input type="text" name="email" value="" required="required"/>
+            <input type="text" name="email" value="" required="required" id="email"/>
           </p>
           <p class="camp">
 						<i class="fas fa-file-invoice-dollar"></i>
             <label>Compte corrent:</label>
-            <input type="text" name="account" value="" required="required" placeholder="Compte obligatori"/>
+            <input type="text" name="account" value="" required="required" placeholder="Compte obligatori" id="account"/>
           </p>
           <p>
 						<i class="fas fa-table-tennis"></i>
@@ -72,8 +72,8 @@
           </p>
 
           <div style="clear:both;text-align:right">
-            <input type="button" id="btn-enviar" class="button-form"  name="enviar" value="Afegir jugador"/>
-          </div>
+            <input type="button" id="btn-enviar" class="button-form"  name="enviar" value="Afegir jugador" onclick="getData()"/>
+          </div>  
 
         </form>
       </fieldset>
@@ -85,8 +85,13 @@
 			<div class="title-list">
 					<h3 style="padding-left:25px">Jugadors professionals</h3>
 			</div>
-      <div id="c_beginner_list"></div>
-      <div id="c_professional_list"></div>
+      <div id="c_beginner_list">
+
+      </div>
+      
+      <div id="c_professional_list">
+
+      </div>
 			<div style="clear:both"></div>
     </main>
 

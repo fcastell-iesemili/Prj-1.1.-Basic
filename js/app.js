@@ -15,7 +15,13 @@ const containerPlayersBeg = document.getElementById('c_beginner_list');
 const containerPlayersPro = document.getElementById('c_professional_list');
 const buttonAdd = document.getElementById('btn-enviar');
 
-init();
+//function to save credentials that user have been introduced
+function getData (){
+	const name = document.getElementById("name").value;
+	const surname = document.getElementById("surname").value;
+	const email = document.getElementById("email").value;
+	const category = document.getElementById("category").value;
+}
 
 //TODO
 // Main function. 
@@ -24,11 +30,59 @@ function init() {}
 //TODO
 // This function adds a new player on the list
 /******************************************************************************/
-function addPlayer() {}
+function addPlayer() {
+
+}
 
 //TODO
 // Checks data from the form fields
-function validateForm(){}
+function validateForm(){
+
+	function validateDNI(dni) {
+		const regex = /^\d{8}[a-zA-Z]$/;
+	
+		if (regex.test(dni)) {
+			var numero = dni.substr(0, dni.length - 1);
+			var letr = dni.substr(dni.length - 1, 1);
+			numero = numero % 23;
+			letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+			letra = letra.substring(numero, numero + 1);
+			if (letra != letr.toUpperCase()) return false;
+		} else {
+			return false;
+		}
+	
+		return true;
+	}
+
+	if(nom.length == 0) {
+		alert('No has escrito nada en el nombre');
+		return false;
+	  }
+
+	 if(llinatges.length == 0) {
+		alert('No has escrito nada en el apellido');
+		return false;
+	  }
+
+	function validateDate(date, format = "dd/mm/aaaa") {
+		let regex = /^([0][1-9]|[12][0-9]|3[01])(\/|-)([0][1-9]|[1][0-2])\2(\d{4})$/;
+			if (format == "dd-mm-aaaa")
+				regex = /^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$/;
+			return regex.test(date);
+	}
+
+	function validatePhone(telefono) {
+		const regex = /^[0-9]{2,3}-? ?[0-9]{6,7}$/;
+			return regex.test(telefono);
+	}
+	
+	function validateEmail(email) {
+		const regex = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+.)+[A-Z]{2,4}$/i;
+		return regex.test(email);
+	}
+
+}
 
 //TODO
 // Create two separate lists depens on category. it uses two different containers
