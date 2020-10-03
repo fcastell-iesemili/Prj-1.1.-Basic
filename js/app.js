@@ -14,21 +14,24 @@ let players = [
 //Add static players
 
 let i;
-
+	
 for(i = 0; i <players.length; i++){
 
 	if (players[i][7] == "BEG"){
 	
-		document.getElementById("c_beginner_list").innerHTML = players;
+		document.getElementById("c_beginner_list").innerHTML = players [1];
+		document.getElementById("c_beginner_list").innerHTML = players [2];
+		document.getElementById("c_beginner_list").innerHTML = players [4];
+		document.getElementById("c_beginner_list").innerHTML = players [7];
 	}
 
 	else {
-		document.getElementById("c_professional_list").innerHTML = players;
+		document.getElementById("c_professional_list").innerHTML = players [1];
+		document.getElementById("c_professional_list").innerHTML = players [2];
+		document.getElementById("c_professional_list").innerHTML = players [4];
+		document.getElementById("c_professional_list").innerHTML = players [7];
 	}
 }
-
-document.getElementById("c_professional_list").innerHTML = players;
-	
 
 // Containers and global objects 
 const containerPlayersBeg = document.getElementById('c_beginner_list');
