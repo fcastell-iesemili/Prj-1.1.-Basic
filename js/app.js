@@ -10,6 +10,26 @@ let players = [
 	["43124345J", "Pepa", "Vivancos Leia", "692403829", "pleia@gmail.com", "12/12/1995", "ES9000246912501234567891", "BEG"]
 ];
 
+
+//Add static players
+
+let i;
+
+for(i = 0; i <players.length; i++){
+
+	if (players[i][7] == "BEG"){
+	
+		document.getElementById("c_beginner_list").innerHTML = players;
+	}
+
+	else {
+		document.getElementById("c_professional_list").innerHTML = players;
+	}
+}
+
+document.getElementById("c_professional_list").innerHTML = players;
+	
+
 // Containers and global objects 
 const containerPlayersBeg = document.getElementById('c_beginner_list');
 const containerPlayersPro = document.getElementById('c_professional_list');
@@ -17,10 +37,10 @@ const buttonAdd = document.getElementById('btn-enviar');
 
 //function to save credentials that user have been introduced
 function getData (){
-	const name = document.getElementById("name").value;
-	const surname = document.getElementById("surname").value;
-	const email = document.getElementById("email").value;
-	const category = document.getElementById("category").value;
+	const v_name = document.getElementById("name").value;
+	const v_surname = document.getElementById("surname").value;
+	const v_email = document.getElementById("email").value;
+	const v_category = document.getElementById("category").value;
 }
 
 //TODO
@@ -32,6 +52,13 @@ function init() {}
 /******************************************************************************/
 function addPlayer() {
 
+	const insert_name = document.getElementById("c_beginner_list").innerHTML = v_name;
+
+	const insert_surname = document.getElementById("c_beginner_list").innerHTML = dades_surname;
+
+	const insert_email = document.getElementById("c_beginner_list").innerHTML = dades_email;
+
+	const insert_category = document.getElementById("c_beginner_list").innerHTML = dades_category;
 }
 
 //TODO
