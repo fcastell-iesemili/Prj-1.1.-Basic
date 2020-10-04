@@ -10,26 +10,22 @@ let players = [
 	["43124345J", "Pepa", "Vivancos Leia", "692403829", "pleia@gmail.com", "12/12/1995", "ES9000246912501234567891", "BEG"]
 ];
 
-
 //Add static players
-
 let i;
-	
-for(i = 0; i <players.length; i++){
-
+for (i = 0; i < 8; i ++){
 	if (players[i][7] == "BEG"){
-	
-		document.getElementById("c_beginner_list").innerHTML = players [1];
-		document.getElementById("c_beginner_list").innerHTML = players [2];
-		document.getElementById("c_beginner_list").innerHTML = players [4];
-		document.getElementById("c_beginner_list").innerHTML = players [7];
-	}
 
+		document.getElementById("c_beginner_list").innerHTML  = players[i][1];
+		document.getElementById("c_beginner_list").innerHTML  = players[i][2];
+		document.getElementById("c_beginner_list").innerHTML  = players[i][4];
+		document.getElementById("c_beginner_list").innerHTML  = players[i][7];
+	}
 	else {
-		document.getElementById("c_professional_list").innerHTML = players [1];
-		document.getElementById("c_professional_list").innerHTML = players [2];
-		document.getElementById("c_professional_list").innerHTML = players [4];
-		document.getElementById("c_professional_list").innerHTML = players [7];
+
+		document.getElementById("c_beginner_list").innerHTML  = players[i][1];
+		document.getElementById("c_beginner_list").innerHTML  = players[i][2];
+		document.getElementById("c_beginner_list").innerHTML  = players[i][4];
+		document.getElementById("c_beginner_list").innerHTML  = players[i][7];
 	}
 }
 
@@ -38,31 +34,35 @@ const containerPlayersBeg = document.getElementById('c_beginner_list');
 const containerPlayersPro = document.getElementById('c_professional_list');
 const buttonAdd = document.getElementById('btn-enviar');
 
-//function to save credentials that user have been introduced
-function getData (){
-	const v_name = document.getElementById("name").value;
-	const v_surname = document.getElementById("surname").value;
-	const v_email = document.getElementById("email").value;
-	const v_category = document.getElementById("category").value;
-}
+
 
 //TODO
 // Main function. 
 function init() {}
 
+//function to save credentials that user have been introduced
+
 //TODO
 // This function adds a new player on the list
 /******************************************************************************/
-function addPlayer() {
 
-	const insert_name = document.getElementById("c_beginner_list").innerHTML = v_name;
+function Add_New_Player(){
+		 
+	const v_name = document.getElementById("name").value;
+	const v_surname = document.getElementById("surname").value;
+	const v_email = document.getElementById("email").value;
+	const v_category = document.getElementById("category").value;
 
-	const insert_surname = document.getElementById("c_beginner_list").innerHTML = dades_surname;
+	const v_complet_data = v_name + " " + v_surname + " " + v_email + " " + v_category;
 
-	const insert_email = document.getElementById("c_beginner_list").innerHTML = dades_email;
+	let v_beg_list = document.getElementById("c_beginner_list");
+	let neww = document.createElement("p");
+	neww.innerHTML = v_complet_data;
+	
+	v_beg_list.appendChild(neww);
+ } 	
 
-	const insert_category = document.getElementById("c_beginner_list").innerHTML = dades_category;
-}
+buttonAdd.onclick = Add_New_Player;
 
 //TODO
 // Checks data from the form fields
