@@ -95,6 +95,35 @@ function Add_New_Player(){
 // Checks data from the form fields
 //-----------------------------------------------------------------------------------------------------------
 
+//VALIDATE DNI
+
+function ValidateDNI() {
+	
+	
+	let v_dni_client = document.getElementById("dni").value;
+
+	let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+	if( !(/^\d{8}[A-Z]$/.test(v_dni_client)) ) {
+	 
+		alert ("Revisalo de nuevo el DNI")
+
+		return false;
+	}
+
+	if(v_dni_client.charAt(8) != letras[(v_dni_client.substring(0, 8))%23]) {
+  
+		alert ("Revisalo de nuevo el DNI")
+
+		return false;
+	}
+	
+	else {
+
+		return true;
+	}
+}
+
 //VALIDATE NAME
 
 function Validate_Name (){
@@ -132,24 +161,64 @@ function Validate_Surname (){
 	}
 }
 
+//VALIDATE BIRTH DATA
+
+function ValidateDate() {
+
+	let v_date_client = document.getElementById("date").value;
+	
+	
+}
+
+
+//Validate Phone
+
+function ValidatePhone() {
+
+	let v_phone_client = document.getElementById("phone").value;
+	
+		if( !(/^\d{9}$/.test(v_phone_client)) ) {
+		  
+			alert ("No has introducido un numero de teléfono válido")
+	
+			return false;
+		}
+	
+		else{
+			
+			return true;
+		}
+	  
+	}
+
 
 // VALIDATE EMAIL
 
-/*
 function Validate_Email() {
 	
 	let v_email_client = document.getElementById("email").value;
-
-	const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	
-	return re.test(String(v_email_client).toLowerCase());
+	if( !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(v_email_client)) ) {
+  
+		alert ("No has introducido un correo válido")
+
+		return false;
+	}
+		
+	
+	else{
+		return true;
+	}
 	
 }
-*/
+
+
+
+
 
 function todo(){
 	
-	Validate_Name(); Validate_Surname(); Validate_Email(); Add_New_Player();
+	 Add_New_Player();
 }
 
 //-----------------------------------------------------------------------------------------------------------
