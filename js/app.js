@@ -15,16 +15,13 @@ const containerPlayersBeg = document.getElementById('c_beginner_list');
 const containerPlayersPro = document.getElementById('c_professional_list');
 const buttonAdd = document.getElementById('btn-enviar');
 
-//TODO
-// Main function. 
-function init() {}
 
 //Add static players
 //-----------------------------------------------------------------------------------------------------------
 
 let i;
 
-for (i = 0; i < 8; i ++){
+for (i = 0; i < players.length; i ++){
 
 	if (players[i][7] == "BEG"){
 		
@@ -91,58 +88,71 @@ function Add_New_Player(){
 	
 	}
 }
- 
-buttonAdd.onclick = Add_New_Player;
 
 //-----------------------------------------------------------------------------------------------------------
 
 
-//TODO
 // Checks data from the form fields
 //-----------------------------------------------------------------------------------------------------------
 
 //VALIDATE NAME
 
-function Validate_Name() {
-	if(v_name === null) {
-		alert("El campo nombre es requerido");
+function Validate_Name (){
 	
+	let v_name_client = document.getElementById("name").value;
+
+	if (v_name_client.length == 0) {
+
+		alert ("No has escrito nada en el usuario")
+
 		return false;
+
 	}
-
+	else {
+		return true;
+	}
 }
-	 buttonAdd.onclick = Validate_Name;
 
 
-	 
+//VALIDATE SURNAME
+
+function Validate_Surname (){
+	
+	let v_surname_client = document.getElementById("surname").value;
+
+	if (v_surname_client.length == 0) {
+
+		alert ("No has escrito nada en el apellido")
+
+		return false;
+
+	}
+	else {
+		return true;
+	}
+}
+
 
 // VALIDATE EMAIL
 
-function Validate_Email(v_email) {
+/*
+function Validate_Email() {
+	
+	let v_email_client = document.getElementById("email").value;
 
-let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	
+	return re.test(String(v_email_client).toLowerCase());
+	
+}
+*/
 
-	if(v_email.value.match(mailformat)) {
-
-		alert("Valid email address!");
-
-		return true;
-	}
-
-	else {
-
-		alert("You have entered an invalid email address!");
-
-		return false;
-	}
+function todo(){
+	
+	Validate_Name(); Validate_Surname(); Validate_Email(); Add_New_Player();
 }
 
 //-----------------------------------------------------------------------------------------------------------
-
-
-//TODO
-// Create two separate lists depens on category. it uses two different containers
-function populateListPlayers() {}
 
 //TODO
 // This function returns true whether the player is 16 years old (for beginners) or 18 years old (for professionals)
