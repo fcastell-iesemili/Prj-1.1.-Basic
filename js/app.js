@@ -10,109 +10,97 @@ let players = [
 	["43124345J", "Pepa", "Vivancos Leia", "692403829", "pleia@gmail.com", "12/12/1995", "ES9000246912501234567891", "BEG"]
 ];
 
-//Add static players
-let i;
-for (i = 0; i < 8; i ++){
-	if (players[i][7] == "BEG"){
-
-		document.getElementById("c_beginner_list").innerHTML  = players[i][1];
-		document.getElementById("c_beginner_list").innerHTML  = players[i][2];
-		document.getElementById("c_beginner_list").innerHTML  = players[i][4];
-		document.getElementById("c_beginner_list").innerHTML  = players[i][7];
-	}
-	else {
-
-		document.getElementById("c_beginner_list").innerHTML  = players[i][1];
-		document.getElementById("c_beginner_list").innerHTML  = players[i][2];
-		document.getElementById("c_beginner_list").innerHTML  = players[i][4];
-		document.getElementById("c_beginner_list").innerHTML  = players[i][7];
-	}
-}
-
 // Containers and global objects 
 const containerPlayersBeg = document.getElementById('c_beginner_list');
 const containerPlayersPro = document.getElementById('c_professional_list');
 const buttonAdd = document.getElementById('btn-enviar');
 
-
-
 //TODO
 // Main function. 
 function init() {}
 
-//function to save credentials that user have been introduced
+//Add static players
+//-----------------------------------------------------------------------------------------------------------
 
-//TODO
+let i;
+
+for (i = 0; i < 8; i ++){
+
+	if (players[i][7] == "BEG"){
+		
+		const var_name = players[i][1];
+		const var_surname = players[i][2];
+		const var_email = players[i][4];
+		const var_category = players[i][7];
+	
+		const var_complete_data = var_name + " " + var_surname + " " + var_email + " " + var_category;
+	
+		let v_beg_slot = document.getElementById("c_beginner_list");
+		let new_beg = document.createElement("p");
+		new_beg.innerHTML = var_complete_data;
+		 
+		v_beg_slot.appendChild(new_beg);
+	}
+	
+	else {
+		
+		const var_name = players[i][1];
+		const var_surname = players[i][2];
+		const var_email = players[i][4];
+		const var_category = players[i][7];
+	
+		const var_complete_data = var_name + " " + var_surname + " " + var_email + " " + var_category;
+	
+
+		let v_pro_slot = document.getElementById("c_professional_list");
+		let new_pro = document.createElement("p");
+		new_pro.innerHTML = var_complete_data;
+		
+		v_pro_slot.appendChild(new_pro);
+	
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+
 // This function adds a new player on the list
-/******************************************************************************/
+//-----------------------------------------------------------------------------------------------------------
 
 function Add_New_Player(){
-		 
+	
 	const v_name = document.getElementById("name").value;
 	const v_surname = document.getElementById("surname").value;
 	const v_email = document.getElementById("email").value;
 	const v_category = document.getElementById("category").value;
-
 	const v_complet_data = v_name + " " + v_surname + " " + v_email + " " + v_category;
-
-	let v_beg_list = document.getElementById("c_beginner_list");
-	let neww = document.createElement("p");
-	neww.innerHTML = v_complet_data;
 	
-	v_beg_list.appendChild(neww);
- } 	
-
+	if (v_category == "BEG"){
+		let v_beg_list = document.getElementById("c_beginner_list");
+		let neww1 = document.createElement("p");
+		neww1.innerHTML = v_complet_data;
+		
+		v_beg_list.appendChild(neww1);
+	}
+	
+	else {
+		let v_beg_list = document.getElementById("c_professional_list");
+		let neww2 = document.createElement("p");
+		neww2.innerHTML = v_complet_data;
+		
+		v_beg_list.appendChild(neww2);
+	
+	}
+}
+ 
 buttonAdd.onclick = Add_New_Player;
+
+//-----------------------------------------------------------------------------------------------------------
+
 
 //TODO
 // Checks data from the form fields
-function validateForm(){
 
-	function validateDNI(dni) {
-		const regex = /^\d{8}[a-zA-Z]$/;
-	
-		if (regex.test(dni)) {
-			var numero = dni.substr(0, dni.length - 1);
-			var letr = dni.substr(dni.length - 1, 1);
-			numero = numero % 23;
-			letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
-			letra = letra.substring(numero, numero + 1);
-			if (letra != letr.toUpperCase()) return false;
-		} else {
-			return false;
-		}
-	
-		return true;
-	}
-
-	if(nom.length == 0) {
-		alert('No has escrito nada en el nombre');
-		return false;
-	  }
-
-	 if(llinatges.length == 0) {
-		alert('No has escrito nada en el apellido');
-		return false;
-	  }
-
-	function validateDate(date, format = "dd/mm/aaaa") {
-		let regex = /^([0][1-9]|[12][0-9]|3[01])(\/|-)([0][1-9]|[1][0-2])\2(\d{4})$/;
-			if (format == "dd-mm-aaaa")
-				regex = /^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$/;
-			return regex.test(date);
-	}
-
-	function validatePhone(telefono) {
-		const regex = /^[0-9]{2,3}-? ?[0-9]{6,7}$/;
-			return regex.test(telefono);
-	}
-	
-	function validateEmail(email) {
-		const regex = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+.)+[A-Z]{2,4}$/i;
-		return regex.test(email);
-	}
-
-}
 
 //TODO
 // Create two separate lists depens on category. it uses two different containers
