@@ -51,7 +51,6 @@ for (i = 0; i < 8; i ++){
 	
 		const var_complete_data = var_name + " " + var_surname + " " + var_email + " " + var_category;
 	
-
 		let v_pro_slot = document.getElementById("c_professional_list");
 		let new_pro = document.createElement("p");
 		new_pro.innerHTML = var_complete_data;
@@ -100,6 +99,49 @@ buttonAdd.onclick = Add_New_Player;
 
 //TODO
 // Checks data from the form fields
+//-----------------------------------------------------------------------------------------------------------
+
+
+function ValidateEmail(v_email) {
+
+	let mailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+
+	if (v_email.value.match(mailformat)) {
+
+			alert("You have entered a valid email address!");   
+			return true;
+	}
+
+	else {
+
+			alert("You have entered an invalid email address!");
+			return false;
+	}
+}
+
+buttonAdd.onclick = ValidateEmail;
+
+//AND ANOTHER OPTION
+
+/*
+
+function validarEmail(v_email) {
+
+	if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(v_email)){
+	 
+		alert("La dirección de email " + v_email + " es correcta.");
+		return (true)
+
+	} else {
+	 
+		alert("La dirección de email es incorrecta.");
+		return (false)
+	}
+  }
+
+  */
+
+//-----------------------------------------------------------------------------------------------------------
 
 
 //TODO
