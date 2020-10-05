@@ -101,45 +101,41 @@ buttonAdd.onclick = Add_New_Player;
 // Checks data from the form fields
 //-----------------------------------------------------------------------------------------------------------
 
+//VALIDATE NAME
 
-function ValidateEmail(v_email) {
+function Validate_Name() {
+	if(v_name === null) {
+		alert("El campo nombre es requerido");
+	
+		return false;
+	}
 
-	let mailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+}
+	 buttonAdd.onclick = Validate_Name;
 
-	if (v_email.value.match(mailformat)) {
 
-			alert("You have entered a valid email address!");   
-			return true;
+	 
+
+// VALIDATE EMAIL
+
+function Validate_Email(v_email) {
+
+let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+	if(v_email.value.match(mailformat)) {
+
+		alert("Valid email address!");
+
+		return true;
 	}
 
 	else {
 
-			alert("You have entered an invalid email address!");
-			return false;
+		alert("You have entered an invalid email address!");
+
+		return false;
 	}
 }
-
-buttonAdd.onclick = ValidateEmail;
-
-//AND ANOTHER OPTION
-
-/*
-
-function validarEmail(v_email) {
-
-	if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(v_email)){
-	 
-		alert("La dirección de email " + v_email + " es correcta.");
-		return (true)
-
-	} else {
-	 
-		alert("La dirección de email es incorrecta.");
-		return (false)
-	}
-  }
-
-  */
 
 //-----------------------------------------------------------------------------------------------------------
 
