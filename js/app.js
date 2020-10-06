@@ -75,14 +75,8 @@ function Add_New_Player(){
 	let Date_Client = new Date(v_age_client);
 	let Year_Client = Date_Client.getFullYear();
 
-	if (Year_Client >= 2001) {
+	if (Year_Client > 2001) {
 
-		return true;
-
-	}
-
-	else {
-		
 		let v_beginner_list = document.getElementById("c_beginner_list");
 		let neww_begginer = document.createElement("p");
 		neww_begginer.innerHTML = v_complet_data;
@@ -90,6 +84,7 @@ function Add_New_Player(){
 		v_beginner_list.appendChild(neww_begginer);
 
 	}
+
 //----------
 	else if (v_category == "BEG"){
 		let v_beg_list = document.getElementById("c_beginner_list");
@@ -309,7 +304,3 @@ function Validation(){
 }
 
 //-----------------------------------------------------------------------------------------------------------
-
-
-// This function returns true whether the player is 16 years old (for beginners) or 18 years old (for professionals)
-function isValidAgePlayer(sDate, minAge) {}
