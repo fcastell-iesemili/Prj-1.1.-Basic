@@ -95,7 +95,9 @@ function Add_New_Player(){
 // Checks data from the form fields
 //-----------------------------------------------------------------------------------------------------------
 
+
 //VALIDATE DNI
+//-----------------------------------------------------------------------------------------------------------
 
 function ValidateDNI() {
 	
@@ -108,14 +110,14 @@ function ValidateDNI() {
 	 
 		alert ("Revisalo de nuevo el DNI")
 
-		return false;
+		return callback(false);
 	}
 
 	if(v_dni_client.charAt(8) != letras[(v_dni_client.substring(0, 8))%23]) {
   
 		alert ("Revisalo de nuevo el DNI")
 
-		return false;
+		return callback(false);
 	}
 	
 	else {
@@ -124,7 +126,11 @@ function ValidateDNI() {
 	}
 }
 
+//-----------------------------------------------------------------------------------------------------------
+
+
 //VALIDATE NAME
+//-----------------------------------------------------------------------------------------------------------
 
 function Validate_Name (){
 	
@@ -134,7 +140,9 @@ function Validate_Name (){
 
 		alert ("No has escrito nada en el usuario")
 
-		return false;
+		document.getElementById("name").focus();
+
+		return callback(false);
 
 	}
 	else {
@@ -142,8 +150,11 @@ function Validate_Name (){
 	}
 }
 
+//-----------------------------------------------------------------------------------------------------------
+
 
 //VALIDATE SURNAME
+//-----------------------------------------------------------------------------------------------------------
 
 function Validate_Surname (){
 	
@@ -153,46 +164,73 @@ function Validate_Surname (){
 
 		alert ("No has escrito nada en el apellido")
 
-		return false;
+		document.getElementById("surname").focus();
 
+		return callback(false);
 	}
 	else {
 		return true;
 	}
 }
 
+//-----------------------------------------------------------------------------------------------------------
+
+
 //VALIDATE BIRTH DATA
+//-----------------------------------------------------------------------------------------------------------
 
 function ValidateDate() {
 
 	let v_date_client = document.getElementById("date").value;
+
+
+  	if( !(/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(v_date_client)) ) {
+
+		alert ("La fecha de nacimiento introducida no es correcta")
+
+		document.getElementById("date").focus();
 	
-	
+		return callback(false);
+ 	 }	
+
+  	else {
+
+	  return true;
+  	}
+
 }
+
+//-----------------------------------------------------------------------------------------------------------
 
 
 //Validate Phone
+//-----------------------------------------------------------------------------------------------------------
 
 function ValidatePhone() {
 
 	let v_phone_client = document.getElementById("phone").value;
 	
-		if( !(/^\d{9}$/.test(v_phone_client)) ) {
+	if( !(/^\d{9}$/.test(v_phone_client)) ) {
 		  
-			alert ("No has introducido un numero de teléfono válido")
+		alert ("No has introducido un numero de teléfono válido")
+
+		document.getElementById("phone").focus();
 	
-			return false;
-		}
-	
-		else{
-			
-			return true;
-		}
-	  
+		return callback(false);
 	}
+	
+	else{
+			
+		return true;
+	}
+	  
+}
+
+//-----------------------------------------------------------------------------------------------------------
 
 
 // VALIDATE EMAIL
+//-----------------------------------------------------------------------------------------------------------
 
 function Validate_Email() {
 	
@@ -202,29 +240,56 @@ function Validate_Email() {
   
 		alert ("No has introducido un correo válido")
 
-		return false;
+		document.getElementById("email").focus();
+
+		return callback(false);
 	}
 		
 	
 	else{
+
 		return true;
 	}
 	
 }
 
+//-----------------------------------------------------------------------------------------------------------
 
 
+//VALIDATE "COMPTE CORRENT"
+//-----------------------------------------------------------------------------------------------------------
 
-
-function todo(){
+function Validate_Account (){
 	
-	 Add_New_Player();
+	let v_account_client = document.getElementById("account").value;
+
+	if (v_account_client.length == 0) {
+
+		alert ("No has escrito nada en el campo 'compte corrent' ")
+
+		document.getElementById("account").focus();
+
+		return callback(false);
+
+	}
+	else {
+		return true;
+	}
 }
 
 //-----------------------------------------------------------------------------------------------------------
 
-//TODO
+
+//FUNCTION THAT DO ALL
+//-----------------------------------------------------------------------------------------------------------
+
+function Validation(){
+	
+	ValidateDNI(); Validate_Name(); Validate_Surname(); ValidateDate();ValidatePhone(); Validate_Email(); Validate_Account(); Add_New_Player();
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
+
 // This function returns true whether the player is 16 years old (for beginners) or 18 years old (for professionals)
 function isValidAgePlayer(sDate, minAge) {}
-
-
