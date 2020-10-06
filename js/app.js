@@ -19,7 +19,7 @@ const buttonAdd = document.getElementById('btn-enviar');
 //Add static players
 //-----------------------------------------------------------------------------------------------------------
 
-let i;
+let i; //CONTADOR
 
 for (i = 0; i < players.length; i ++){
 
@@ -70,12 +70,24 @@ function Add_New_Player(){
 	const v_email = document.getElementById("email").value;
 	const v_category = document.getElementById("category").value;
 	const v_complet_data = v_name + " " + v_surname + " " + v_email + " " + v_category;
-//----------	
+
+
+	//HERE WE VERIFICATING THE AGE OF THE CLIENT	
+	//---------------
+
 	let v_age_client = document.getElementById("date").value;
 	let Date_Client = new Date(v_age_client);
 	let Year_Client = Date_Client.getFullYear();
 
-	if (Year_Client > 2001) {
+	if (Year_Client > 2004) {
+
+		alert ("No tienes la suficiente Edad 'Minima edad 16' ")
+
+		return callback(false);
+
+	}
+
+	if (Year_Client > 2002) {
 
 		let v_beginner_list = document.getElementById("c_beginner_list");
 		let neww_begginer = document.createElement("p");
@@ -85,7 +97,8 @@ function Add_New_Player(){
 
 	}
 
-//----------
+//---------------
+
 	else if (v_category == "BEG"){
 		let v_beg_list = document.getElementById("c_beginner_list");
 		let neww1 = document.createElement("p");
