@@ -70,8 +70,28 @@ function Add_New_Player(){
 	const v_email = document.getElementById("email").value;
 	const v_category = document.getElementById("category").value;
 	const v_complet_data = v_name + " " + v_surname + " " + v_email + " " + v_category;
-	
-	if (v_category == "BEG"){
+//----------	
+	let v_age_client = document.getElementById("date").value;
+	let Date_Client = new Date(v_age_client);
+	let Year_Client = Date_Client.getFullYear();
+
+	if (Year_Client >= 2001) {
+
+		return true;
+
+	}
+
+	else {
+		
+		let v_beginner_list = document.getElementById("c_beginner_list");
+		let neww_begginer = document.createElement("p");
+		neww_begginer.innerHTML = v_complet_data;
+		
+		v_beginner_list.appendChild(neww_begginer);
+
+	}
+//----------
+	else if (v_category == "BEG"){
 		let v_beg_list = document.getElementById("c_beginner_list");
 		let neww1 = document.createElement("p");
 		neww1.innerHTML = v_complet_data;
